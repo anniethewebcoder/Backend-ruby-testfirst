@@ -26,8 +26,18 @@ def titleize(x)
         "a", "to", "by", "in", "and", "but", "or", "the", "on", "with", "at", "an"
     ]
 
-    cap_x = x.split(" ").map{ |w| w.capitalize }.join(" ")
-    return cap_x
+    cap_x = x.split(" ")
+    
+    result = ""
+    cap_x.each do |w|
+       if little_words.include?(w) == true
+        result += w + " "
+       else 
+        result += w.capitalize + " "
+       end
+    end
+    
+    return result.chop
 
 end
 
