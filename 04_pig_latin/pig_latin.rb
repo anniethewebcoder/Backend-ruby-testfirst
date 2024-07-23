@@ -5,45 +5,25 @@ def translate(x)
 
     result = ""
 
-    case check_first_letter(x)
-    when "vowel"
-        result = x + "ay"
-    when "one"
-        first_letter = x[0]
-        rest_of_word = x[1..-1]
-
-        result = rest_of_word + first_letter + "ay"
-    when "two"
-        first_two_letters = x[0..1]
-        rest_of_word = x[2..-1]
-
-        result = rest_of_word + first_two_letters + "ay"
-    end
-
-    return result
-
-
-end
-
-def check_first_letter(x)
-    
-    vowels = ["a", "e", "i", "o", "u"]
-
     x_arr = x.split(" ")
 
-    first_letter = x[0]
-    second_letter = x[1]
+    x_arr.each do |w| 
+        if vowels.include?(w[0]) == true
+            result += w + "ay "
+        elsif vowels.include?(w[0]) == false && w[1] == "u"
+            result += w[2..-1] + w[0..1] + "ay "
+        elsif vowels.include?(w[0]) == false && vowels.include?(w[1]) == false && w[2] == "u"
+            result += w[3..-1] + w[0..2] + "ay "
+        elsif vowels.include?(w[0]) == false && vowels.include?(w[1]) == true
+            result += w[1..-1] + w[0] + "ay "
+        elsif vowels.include?(w[0]) == false && vowels.include?(w[1]) == false && vowels.include?(w[2]) == true
+            result += w[2..-1] + w[0..1] + "ay "
+        elsif vowels.include?(w[0]) == false && vowels.include?(w[1]) == false && vowels.include?(w[2]) == false && vowels.include?(w[3]) == true
+            result += w[3..-1] + w[0..2] + "ay "
+        end
 
-    result = ""
-    
-    if vowels.include?(x[0]) == true
-        result = "vowel"
-    elsif vowels.include?(x[0]) == false && vowels.include?(x[1]) == true
-        result = "one"
-    else
-        result = "two"
     end
 
-    return result
+    return result.chop
 
 end
