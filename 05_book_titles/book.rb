@@ -1,10 +1,14 @@
 class Book
 # write your code here
-    attr_accessor :title
+    attr_reader :title
 
     def title=(new_title)
         @title = titleize(new_title)
     end
+
+    # def initialize (title)
+    #     @title = title
+    # end
 
     def titleize(x)
         little_words = [
@@ -28,3 +32,6 @@ class Book
     end
     
 end
+
+# new_book = Book.new("ruby programming")
+# new_book.title
