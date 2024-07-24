@@ -6,10 +6,6 @@ class Book
         @title = titleize(new_title)
     end
 
-    # def initialize (title)
-    #     @title = title
-    # end
-
     def titleize(x)
         little_words = [
             "a", "to", "by", "in", "and", "but", "or", "the", "on", "with", "at", "an", "over", "of"
@@ -33,5 +29,6 @@ class Book
     
 end
 
-# new_book = Book.new("ruby programming")
-# new_book.title
+# new_book = Book.new
+# new_book.title = "ruby programming"
+# puts new_book.title

@@ -23,7 +23,7 @@ end
 
 def titleize(x)
     little_words = [
-        "a", "to", "by", "in", "and", "but", "or", "the", "on", "with", "at", "an", "over"
+        "a", "to", "by", "in", "and", "but", "or", "the", "on", "with", "at", "an", "over", "of"
     ]
 
     cap_x = x.split(" ")
